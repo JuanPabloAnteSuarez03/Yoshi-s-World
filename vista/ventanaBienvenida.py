@@ -59,7 +59,7 @@ class Ui_Bienvenida(object):
         self.btnContinuar.setMaximumSize(QtCore.QSize(171, 51))
         self.btnContinuar.setStyleSheet("font: 12pt \"Cooper Black\";")
         self.btnContinuar.setObjectName("btnContinuar")
-        #self.btnContinuar.clicked.connect(self.abrir_continuar)
+        self.btnContinuar.clicked.connect(self.abrir_continuar)
         Bienvenida.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Bienvenida)
@@ -86,12 +86,12 @@ class Ui_Bienvenida(object):
         "background-color: rgb(100, 0, 0);"
         "}"))
     
-    """def abrir_continuar(self):
+    def abrir_continuar(self):
         # Ejecutar "Mando y Grogu.py" usando subprocess
         subprocess.Popen(["python", "vista/ventanaInicio.py"])
          # Ocultar la ventana actual
         app = QApplication.instance()
-        app.activeWindow().hide()"""
+        app.activeWindow().hide()
 
 if __name__ == "__main__":
     import sys
