@@ -89,7 +89,7 @@ class Ui_ventanaInicio(object):
 
     def retranslateUi(self, ventanaInicio):
         _translate = QtCore.QCoreApplication.translate
-        ventanaInicio.setWindowTitle(_translate("ventanaInicio", "Niveles"))
+        ventanaInicio.setWindowTitle(_translate("ventanaInicio", "NIVELES"))
         self.label_titulo_nivel.setText(_translate("ventanaInicio", "<html><head/><body><p align=\"center\"><span style=\" color:#d30000;\">NIVELES</span></p></body></html>"))
         self.btnFacil.setText(_translate("ventanaInicio", "FACIL"))
         self.btnFacil.setProperty("class", _translate("ventanaInicio", 

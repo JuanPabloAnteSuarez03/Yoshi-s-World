@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Niveles</string>
+   <string>NIVELES</string>
   </property>
   <property name="styleSheet">
    <string notr="true">.btnFacil {
