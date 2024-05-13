@@ -15,3 +15,4 @@ class Yoshi:
             if 0 <= fila < 8 and 0 <= columna < 8 and matriz_ambiente[fila][columna] == 0:
                 casillas_disponibles.append((fila, columna))
         return casillas_disponibles
+
