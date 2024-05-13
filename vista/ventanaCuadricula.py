@@ -89,7 +89,7 @@ class Ui_ventanaCuadricula(object):
         self.btnVolver.setGeometry(QtCore.QRect(770, 920, 171, 51))
         self.btnVolver.setStyleSheet("font: 14pt \"Cooper Black\";")
         self.btnVolver.setObjectName("btnVolver")
-        #self.btnVolver.clicked.connect(self.abrir_niveles)
+        self.btnVolver.clicked.connect(self.abrir_niveles)
         ventanaCuadricula.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(ventanaCuadricula)
@@ -113,12 +113,12 @@ class Ui_ventanaCuadricula(object):
         "   background-color: rgb(100, 0, 0)\n"
         "}"))
     
-    """def abrir_niveles(self):
+    def abrir_niveles(self):
         # Ejecutar "Mando y Grogu.py" usando subprocess
         subprocess.Popen(["python", "vista/ventanaInicio.py"])
          # Ocultar la ventana actual
         app = QApplication.instance()
-        app.activeWindow().hide()"""    
+        app.activeWindow().hide()    
 
     def on_graphicsView_clicked(self, i, j):
         # Obtener el QGraphicsView clicado

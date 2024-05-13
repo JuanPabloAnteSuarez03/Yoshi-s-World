@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import QApplication
+import subprocess
 
 class Ui_ventanaInicio(object):
     def setupUi(self, ventanaInicio):
@@ -82,6 +83,9 @@ class Ui_ventanaInicio(object):
         self.btnDificil.setGeometry(QtCore.QRect(670, 230, 140, 60))
         self.btnDificil.setStyleSheet("font: 16pt \"Cooper Black\";")
         self.btnDificil.setObjectName("btnDificil")
+        self.btnFacil.clicked.connect(self.abrir_cuadricula)
+        self.btnMedio.clicked.connect(self.abrir_cuadricula)    
+        self.btnDificil.clicked.connect(self.abrir_cuadricula)            
         ventanaInicio.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(ventanaInicio)
@@ -134,6 +138,12 @@ class Ui_ventanaInicio(object):
         "   background-color: rgb(100, 0, 0)\n"
         "}"))
 
+    def abrir_cuadricula(self):
+        # Ejecutar "Mando y Grogu.py" usando subprocess
+        subprocess.Popen(["python", "vista/ventanaCuadricula.py"])
+         # Ocultar la ventana actual
+        app = QApplication.instance()
+        app.activeWindow().hide()
 
 if __name__ == "__main__":
     import sys
