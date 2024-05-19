@@ -18,25 +18,29 @@ class Ambiente:
         self.yoshi_verde = Yoshi('verde', fila_verde, columna_verde)
         self.yoshi_rojo = Yoshi('rojo', fila_rojo, columna_rojo)
         # Marcar las posiciones iniciales de los Yoshis en el tablero
-        self.matriz[fila_verde][columna_verde] = '1'
-        self.matriz[fila_rojo][columna_rojo] = '2'
+        self.matriz[fila_verde][columna_verde] = 1
+        self.matriz[fila_rojo][columna_rojo] = 2
     
     def realizar_movimiento(self, yoshi, fila_destino, columna_destino):
         fila_actual, columna_actual = yoshi.fila, yoshi.columna
-        self.matriz[fila_actual][columna_actual] = yoshi.color[0].upper()
+        # Marcar la posición anterior como pintada
+        if yoshi.color == 'verde':
+            self.matriz[fila_actual][columna_actual] = 3
+        elif yoshi.color == 'rojo':
+            self.matriz[fila_actual][columna_actual] = 4
+        # Actualizar la posición del Yoshi
         yoshi.fila, yoshi.columna = fila_destino, columna_destino
+        # Actualizar la matriz y las casillas pintadas
         self.actualizar_casillas_pintadas(yoshi)
     
     def actualizar_casillas_pintadas(self, yoshi):
-        fila_actual, columna_actual = yoshi.fila, yoshi.columna
+        fila, columna = yoshi.fila, yoshi.columna
         if yoshi.color == 'verde':
             self.casillas_pintadas_verde += 1
-            self.matriz[fila_actual][columna_actual] = 3
-            self.matriz[yoshi.fila][yoshi.columna] = 1
+            self.matriz[fila][columna] = 1
         elif yoshi.color == 'rojo':
             self.casillas_pintadas_rojo += 1
-            self.matriz[fila_actual][columna_actual] = 4
-            self.matriz[yoshi.fila][yoshi.columna] = 2
+            self.matriz[fila][columna] = 2
 
     def obtener_casillas_disponibles(self, yoshi):
         fila_actual, columna_actual = yoshi.fila, yoshi.columna
@@ -68,6 +72,8 @@ class Ambiente:
 # ambiente.inicializar_ambiente()
 # ambiente.mostrar_ambiente()
 # print()
+# print(ambiente.yoshi_verde.fila, ambiente.yoshi_verde.columna)
+# print(ambiente.obtener_casillas_disponibles(ambiente.yoshi_verde))
 # ambiente.realizar_movimiento(ambiente.yoshi_verde, 2, 3)
 # ambiente.realizar_movimiento(ambiente.yoshi_verde, 5, 4)
 # ambiente.realizar_movimiento(ambiente.yoshi_verde, 3, 2)
