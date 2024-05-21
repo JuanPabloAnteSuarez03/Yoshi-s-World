@@ -61,26 +61,26 @@ class Ambiente:
     def copy(self):
         copia = Ambiente()
         copia.matriz = [fila[:] for fila in self.matriz]
-        copia.yoshi_verde = Yoshi(self.yoshi_verde.color, self.yoshi_verde.fila, self.yoshi_verde.columna)
-        copia.yoshi_rojo = Yoshi(self.yoshi_rojo.color, self.yoshi_rojo.fila, self.yoshi_rojo.columna)
+        copia.yoshi_verde = Yoshi(self.yoshi_verde.color, self.yoshi_verde.fila, self.yoshi_verde.columna) if self.yoshi_verde else None
+        copia.yoshi_rojo = Yoshi(self.yoshi_rojo.color, self.yoshi_rojo.fila, self.yoshi_rojo.columna) if self.yoshi_rojo else None
         copia.casillas_pintadas_verde = self.casillas_pintadas_verde
         copia.casillas_pintadas_rojo = self.casillas_pintadas_rojo
         return copia
 
 # Ejemplo de uso:
-# ambiente = Ambiente()
-# ambiente.inicializar_ambiente()
-# ambiente.mostrar_ambiente()
-# print()
-# print(ambiente.yoshi_verde.fila, ambiente.yoshi_verde.columna)
-# print(ambiente.obtener_casillas_disponibles(ambiente.yoshi_verde))
-# ambiente.realizar_movimiento(ambiente.yoshi_verde, 2, 3)
-# ambiente.realizar_movimiento(ambiente.yoshi_verde, 5, 4)
-# ambiente.realizar_movimiento(ambiente.yoshi_verde, 3, 2)
-# ambiente.realizar_movimiento(ambiente.yoshi_verde, 1, 6)
-# ambiente.realizar_movimiento(ambiente.yoshi_rojo, 4, 5)
-# ambiente.realizar_movimiento(ambiente.yoshi_rojo, 6, 1)
-# ambiente.realizar_movimiento(ambiente.yoshi_rojo, 7, 3)
-# ambiente.realizar_movimiento(ambiente.yoshi_rojo, 5, 7)
-# ambiente.mostrar_ambiente()
-# print(ambiente.casillas_pintadas_verde, ambiente.casillas_pintadas_rojo)
+ambiente = Ambiente()
+ambiente.inicializar_ambiente()
+ambiente.mostrar_ambiente()
+print()
+print(ambiente.yoshi_verde.fila, ambiente.yoshi_verde.columna)
+print(ambiente.obtener_casillas_disponibles(ambiente.yoshi_verde))
+ambiente.realizar_movimiento(ambiente.yoshi_verde, 2, 3)
+ambiente.realizar_movimiento(ambiente.yoshi_verde, 5, 4)
+ambiente.realizar_movimiento(ambiente.yoshi_verde, 3, 2)
+ambiente.realizar_movimiento(ambiente.yoshi_verde, 1, 6)
+ambiente.realizar_movimiento(ambiente.yoshi_rojo, 4, 5)
+ambiente.realizar_movimiento(ambiente.yoshi_rojo, 6, 1)
+ambiente.realizar_movimiento(ambiente.yoshi_rojo, 7, 3)
+ambiente.realizar_movimiento(ambiente.yoshi_rojo, 5, 7)
+ambiente.mostrar_ambiente()
+print(ambiente.casillas_pintadas_verde, ambiente.casillas_pintadas_rojo)
