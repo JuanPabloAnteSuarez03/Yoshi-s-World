@@ -5,7 +5,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'modelo'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'imagenes'))
-
+from ambiente import Ambiente
 
 
 class VentanaJuego(QGraphicsView):
@@ -28,13 +28,12 @@ class VentanaJuego(QGraphicsView):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
-    matriz = [
-        [0, 0, 0, 1, 0],
-        [0, 2, 0, 1, 0],
-        [0, 2, 3, 1, 0],
-        [0, 4, 0, 1, 0],
-        [0, 0, 0, 1, 0]
-    ]
+    # Inicializa el ambiente
+    ambiente = Ambiente()
+    ambiente.inicializar_ambiente()
+
+    # Obtén la matriz del ambiente
+    matriz = ambiente.matriz
 
     imagenes = {
         0: "imagenes/vacio.png",
