@@ -58,38 +58,5 @@ def generar_hijos(nodo, yoshi):
         nodo_hijo = Nodo(ambiente_temporal)
         nodo.hijos.append(nodo_hijo)
 
-# Inicializar el ambiente
-ambiente = Ambiente()
-ambiente.inicializar_ambiente()
-ambiente.mostrar_ambiente()
 
-# Bucle para jugar hasta que uno de los yoshis no tenga movimientos disponibles
-while True:
-    # Turno del yoshi verde (bot)
-    print("Turno del Yoshi Verde:")
-    mejor_movimiento_verde = obtener_mejor_movimiento(ambiente, 9)
-    print("Lista de movimientos disponibles para el Yoshi Verde: ", ambiente.obtener_casillas_disponibles(ambiente.yoshi_verde))
-    print("Mejor movimiento del Yoshi Verde: ", mejor_movimiento_verde)
-    if mejor_movimiento_verde:
-        ambiente.realizar_movimiento(ambiente.yoshi_verde, *mejor_movimiento_verde)
-        ambiente.mostrar_ambiente()
-    else:
-        print("El Yoshi Verde no tiene movimientos disponibles. ¡El Yoshi Rojo gana!")
-        break
 
-    # Turno del usuario (Yoshi Rojo)
-    print("Turno del Yoshi Rojo (Usuario):")
-    movimientos_disponibles_rojo = ambiente.obtener_casillas_disponibles(ambiente.yoshi_rojo)
-    print("Lista de movimientos disponibles para el Yoshi Rojo: ", movimientos_disponibles_rojo)
-    if not movimientos_disponibles_rojo:
-        print("El Yoshi Rojo no tiene movimientos disponibles. ¡El Yoshi Verde gana!")
-        break
-
-    # Solicitar movimiento del usuario
-    fila_destino = int(input("Ingrese la fila del movimiento: "))
-    columna_destino = int(input("Ingrese la columna del movimiento: "))
-    if (fila_destino, columna_destino) in movimientos_disponibles_rojo:
-        ambiente.realizar_movimiento(ambiente.yoshi_rojo, fila_destino, columna_destino)
-        ambiente.mostrar_ambiente()
-    else:
-        print("Movimiento inválido. Intente nuevamente.")
