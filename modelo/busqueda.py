@@ -16,8 +16,7 @@ def heuristica(ambiente, yoshi):
     mov_posibles_oponente = len(ambiente.obtener_casillas_disponibles(oponente))
     
     # Calcular la heurística combinando los aspectos anteriores
-    heuristica = (casillas_pintadas_yoshi - casillas_pintadas_oponente) + casillas_disponibles - mov_posibles_oponente
-    return heuristica
+    return (casillas_pintadas_yoshi - casillas_pintadas_oponente) + (casillas_disponibles - mov_posibles_oponente)
 
 def minimax(nodo, profundidad, es_max):
     if profundidad == 0 or not nodo.hijos:
@@ -42,11 +41,23 @@ def obtener_mejor_movimiento(ambiente, profundidad):
     for movimiento in ambiente.obtener_casillas_disponibles(ambiente.yoshi_verde):
         copia_ambiente = copy.deepcopy(ambiente)
         copia_ambiente.realizar_movimiento(copia_ambiente.yoshi_verde, *movimiento)
-        valor = minimax(Nodo(copia_ambiente), profundidad, False)
+        nodo = Nodo(copia_ambiente)
+        generar_hijos(nodo, copia_ambiente.yoshi_rojo)  # Asegurarse de generar los hijos aquí
+        valor = minimax(nodo, profundidad, False)
         if valor > mejor_valor:
             mejor_valor = valor
             mejor_movimiento = movimiento
     return mejor_movimiento
+
+def generar_hijos(nodo, yoshi):
+    ambiente = nodo.estado
+    casillas_disponibles = ambiente.obtener_casillas_disponibles(yoshi)
+    for fila_destino, columna_destino in casillas_disponibles:
+        ambiente_temporal = copy.deepcopy(ambiente)  # Asegurarse de hacer una copia profunda aquí también
+        ambiente_temporal.realizar_movimiento(yoshi, fila_destino, columna_destino)
+        nodo_hijo = Nodo(ambiente_temporal)
+        nodo.hijos.append(nodo_hijo)
+
 
 ambiente = Ambiente()
 ambiente.inicializar_ambiente()
@@ -56,7 +67,9 @@ ambiente.mostrar_ambiente()
 while True:
     # Turno del yoshi verde
     print("Turno del Yoshi Verde:")
-    mejor_movimiento_verde = obtener_mejor_movimiento(ambiente, 3)
+    mejor_movimiento_verde = obtener_mejor_movimiento(ambiente, 9)
+    print("Lista de movimientos disponibles: ", ambiente.obtener_casillas_disponibles(ambiente.yoshi_verde))
+    print("Mejor movimiento: ", mejor_movimiento_verde)
     if mejor_movimiento_verde:
         ambiente.realizar_movimiento(ambiente.yoshi_verde, *mejor_movimiento_verde)
         ambiente.mostrar_ambiente()
