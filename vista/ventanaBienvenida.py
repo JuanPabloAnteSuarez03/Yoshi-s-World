@@ -32,13 +32,13 @@ class Ui_Bienvenida(object):
         self.frame.setObjectName("frame")
 
         # Cargar la imagen de fondo y ajustar al tamaño del frame
-        self.background_image = QtGui.QPixmap("Yoshi-s-World/imagenes/fondoYoshi.png").scaled(self.frame.size())  # Ajustar tamaño
+        self.background_image = QtGui.QPixmap("imagenes/fondoYoshi.png").scaled(self.frame.size())  # Ajustar tamaño
         self.background_label = QtWidgets.QLabel(self.frame)
         self.background_label.setPixmap(self.background_image)
         self.background_label.setGeometry(QtCore.QRect(0, 0, 700, 700))
 
         # Directorio de la imagen del icono
-        icon = QtGui.QIcon("Yoshi-s-World/imagenes/iconoHuevo.png")  # Crear QIcon desde el archivo de imagen
+        icon = QtGui.QIcon("imagenes/iconoHuevo.png")  # Crear QIcon desde el archivo de imagen
         Bienvenida.setWindowIcon(icon)  # Establecer el icono de la ventana
 
         self.label_titulo_bienvenida = QtWidgets.QLabel(self.frame)

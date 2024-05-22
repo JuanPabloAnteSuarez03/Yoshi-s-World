@@ -66,7 +66,7 @@ class VentanaJuego(QGraphicsView):
             self.setFixedSize(scene_width + 2, scene_height + 2)
 
     def turno_yoshi_verde(self):
-        mejor_movimiento_verde = obtener_mejor_movimiento(ambiente, 500)
+        mejor_movimiento_verde = obtener_mejor_movimiento(ambiente, 6)
         if mejor_movimiento_verde:
             ambiente.realizar_movimiento(ambiente.yoshi_verde, *mejor_movimiento_verde)
             self.actualizar_escena()
@@ -87,11 +87,11 @@ if __name__ == "__main__":
     ambiente.inicializar_ambiente()
     matriz = ambiente.matriz
     imagenes = {
-        0: "Yoshi-s-World/imagenes/vacio.png",
-        1: "Yoshi-s-World/imagenes/yoshiVerde.png",
-        2: "Yoshi-s-World/imagenes/yoshiRojo.png",
-        3: "Yoshi-s-World/imagenes/verde.png",
-        4: "Yoshi-s-World/imagenes/rojo.png"
+        0: "imagenes/vacio.png",
+        1: "imagenes/yoshiVerde.png",
+        2: "imagenes/yoshiRojo.png",
+        3: "imagenes/verde.png",
+        4: "imagenes/rojo.png"
     }
     ventana = VentanaJuego(matriz, imagenes)
     ventana.setWindowTitle("Juego de Yoshis")
