@@ -71,7 +71,7 @@ class Ui_Bienvenida(object):
         self.label_titulo_bienvenida.setText(_translate("Bienvenida", "<html><head/><body><p align=\"center\"><span style=\" color:#d30000;\">YOSHI\'S WORLD</span></p></body></html>"))
         self.label_miembros.setText(_translate("Bienvenida", "<html><head/><body><p align=\"center\"><span style=\" color:#d30000;\">Juan Pablo Ante - 2140132</span></p><p align=\"center\"><span style=\" color:#d30000;\">Nicolás Garcés - 2180066</span></p><p align=\"center\"><span style=\" color:#d30000;\">Alejandro Guerrero - 2179652</span></p><p align=\"center\"><span style=\" color:#d30000;\">Alejandro Zambrano - 1941088</span></p></body></html>"))
         self.btnContinuar.setText(_translate("Bienvenida", "CONTINUAR"))
-        self.btnContinuar.setProperty("class", _translate("MainWindow", 
+        self.btnContinuar.setProperty("class", _translate("Bienvenida", 
         "btnContinuar {"
         "font: 12pt \"Cooper Black\";"
         "background: #D30000;"
@@ -87,7 +87,7 @@ class Ui_Bienvenida(object):
         "}"))
     
     def abrir_continuar(self):
-        # Ejecutar "Mando y Grogu.py" usando subprocess
+        # Ejecutar "ventanaInicio.py" usando subprocess
         subprocess.Popen(["python", "vista/ventanaInicio.py"])
          # Ocultar la ventana actual
         app = QApplication.instance()

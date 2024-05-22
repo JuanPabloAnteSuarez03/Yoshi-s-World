@@ -83,9 +83,9 @@ class Ui_ventanaInicio(object):
         self.btnDificil.setGeometry(QtCore.QRect(670, 230, 140, 60))
         self.btnDificil.setStyleSheet("font: 16pt \"Cooper Black\";")
         self.btnDificil.setObjectName("btnDificil")
-        self.btnFacil.clicked.connect(self.abrir_cuadricula)
-        self.btnMedio.clicked.connect(self.abrir_cuadricula)    
-        self.btnDificil.clicked.connect(self.abrir_cuadricula)            
+        self.btnFacil.clicked.connect(lambda: self.abrir_cuadricula(2))
+        self.btnMedio.clicked.connect(lambda: self.abrir_cuadricula(4))    
+        self.btnDificil.clicked.connect(lambda: self.abrir_cuadricula(6))           
         ventanaInicio.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(ventanaInicio)
@@ -138,9 +138,10 @@ class Ui_ventanaInicio(object):
         "   background-color: rgb(100, 0, 0)\n"
         "}"))
 
-    def abrir_cuadricula(self):
-        # Ejecutar "Mando y Grogu.py" usando subprocess
-        subprocess.Popen(["python", "vista/ventanaJuego.py"])
+    def abrir_cuadricula(self, dificultad):
+        # Ejecutar "ventanaJuego.py" usando subprocess
+        subprocess.Popen(["python", "vista/ventanaJuego.py", str(dificultad)])
+        print(dificultad)
          # Ocultar la ventana actual
         app = QApplication.instance()
         app.activeWindow().hide()
