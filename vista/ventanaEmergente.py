@@ -46,6 +46,7 @@ class Ui_ventanaEmergente(object):
         self.label_mensaje.setGeometry(QtCore.QRect(150, 20, 511, 201))
         self.label_mensaje.setStyleSheet("font: 10pt \"Cooper Black\";")
         self.label_mensaje.setObjectName("label_mensaje")
+        self.label_mensaje.setWordWrap(True)
         self.label_mensaje.setText(mensaje)
         self.label_imagen = QtWidgets.QLabel(self.frame)
         self.label_imagen.setGeometry(QtCore.QRect(20, 50, 100, 100))
@@ -77,7 +78,7 @@ class Ui_ventanaEmergente(object):
     def retranslateUi(self, ventanaEmergente, mensaje):
         _translate = QtCore.QCoreApplication.translate
         ventanaEmergente.setWindowTitle(_translate("ventanaEmergente", "Resultados"))
-        self.label_mensaje.setText(_translate("ventanaEmergente", f"<html><head/><body><p><span style=\" font-size:10pt;\">{mensaje}<br/></span></p></body></html>"))
+        self.label_mensaje.setText(_translate("ventanaEmergente", f"<html><head/><body><p><span style=\" font-size:12pt;\">{mensaje}<br/></span></p></body></html>"))
         self.btnOk.setText(_translate("ventanaEmergente", "OK"))
         self.btnOk.setProperty("class", _translate("ventanaEmergente", 
         "btnOk {\n"
@@ -104,7 +105,7 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     ventanaEmergente = QtWidgets.QMainWindow()
     ui = Ui_ventanaEmergente()
-    mensaje = ("hola")
+    mensaje = ("¡El Yoshi Rojo Gana!<br>Casillas pintadas por el verde: 20, No puede seguir jugando.<br>Casillas pintadas por el rojo: 21, Puede seguir jugando.")
     ui.setupUi(ventanaEmergente,mensaje)
     ventanaEmergente.show()
     sys.exit(app.exec_())

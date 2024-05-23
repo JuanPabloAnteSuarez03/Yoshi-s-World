@@ -117,9 +117,9 @@ class VentanaJuego(QGraphicsView):
             print("Casillas pintadas por el verde:", ambiente.casillas_pintadas_verde, "No puede seguir jugando, no tiene movimientos")
             print("Casillas pintadas por el rojo:", ambiente.casillas_pintadas_rojo, "Puede seguir jugando" )
             resultado = (
-                "El Yoshi Verde no tiene movimientos disponibles. ¡El Yoshi Rojo gana!<br>"
-                f"Casillas pintadas por el verde: {ambiente.casillas_pintadas_verde}, No puede seguir<br>jugando<br>"
-                f"Casillas pintadas por el rojo: {ambiente.casillas_pintadas_rojo}, Puede seguir jugando"
+                "¡El Yoshi Rojo Gana!<br>"
+                f"Casillas pintadas por el verde: {ambiente.casillas_pintadas_verde}, No puede seguir jugando.<br>"
+                f"Casillas pintadas por el rojo: {ambiente.casillas_pintadas_rojo}, Puede seguir jugando."
             )
             self.mostrar_resultado(resultado)
             self.btnVolver.setFixedSize(120, 50)  # Ajustar tamaño horizontal y vertical
@@ -130,9 +130,9 @@ class VentanaJuego(QGraphicsView):
             print("Casillas pintadas por el verde:", ambiente.casillas_pintadas_verde,"Puede seguir jugando")
             print("Casillas pintadas por el rojo:", ambiente.casillas_pintadas_rojo, "No puede seguir jugando, no tiene movimientos")
             resultado = (
-                "El yoshi verde GANÓ<br>"
-                f"Casillas pintadas por el verde: {ambiente.casillas_pintadas_verde}, Puede seguir jugando<br>"
-                f"Casillas pintadas por el rojo: {ambiente.casillas_pintadas_rojo}, No puede seguir jugando"
+                "¡El Yoshi Verde Gana!<br>"
+                f"Casillas pintadas por el verde: {ambiente.casillas_pintadas_verde}, Puede seguir jugando.<br>"
+                f"Casillas pintadas por el rojo: {ambiente.casillas_pintadas_rojo}, No puede seguir jugando."
             )
             self.mostrar_resultado(resultado)
             self.btnVolver.setFixedSize(120, 50)  # Ajustar tamaño horizontal y vertical
