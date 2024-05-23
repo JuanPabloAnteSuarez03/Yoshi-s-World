@@ -1,8 +1,9 @@
 import sys
 from PyQt5 import QtGui
-from PyQt5.QtWidgets import QApplication, QGraphicsView, QGraphicsScene, QGraphicsPixmapItem, QPushButton, QHBoxLayout
+from PyQt5.QtWidgets import QApplication, QGraphicsView, QGraphicsScene, QGraphicsPixmapItem, QPushButton, QHBoxLayout, QMessageBox
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt, QTimer
+from ventanaEmergente import *
 import os
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'modelo'))
@@ -27,7 +28,7 @@ class VentanaJuego(QGraphicsView):
 
         self.turno_yoshi_rojo = True  
 
-        
+        self.ventana_emergente = None
 
         # Crear el botón Volver
         self.btnVolver = QPushButton("Volver")
@@ -115,6 +116,12 @@ class VentanaJuego(QGraphicsView):
             print("El Yoshi Verde no tiene movimientos disponibles. ¡El Yoshi Rojo gana!")
             print("Casillas pintadas por el verde:", ambiente.casillas_pintadas_verde, "No puede seguir jugando, no tiene movimientos")
             print("Casillas pintadas por el rojo:", ambiente.casillas_pintadas_rojo, "Puede seguir jugando" )
+            resultado = (
+                "El Yoshi Verde no tiene movimientos disponibles. ¡El Yoshi Rojo gana!<br>"
+                f"Casillas pintadas por el verde: {ambiente.casillas_pintadas_verde}, No puede seguir<br>jugando<br>"
+                f"Casillas pintadas por el rojo: {ambiente.casillas_pintadas_rojo}, Puede seguir jugando"
+            )
+            self.mostrar_resultado(resultado)
             self.btnVolver.setFixedSize(120, 50)  # Ajustar tamaño horizontal y vertical
             self.btnVolver.setVisible(True)  # Establecer la visibilidad del botón "Volver" como True
 
@@ -122,8 +129,21 @@ class VentanaJuego(QGraphicsView):
             print("El yoshi verde GANÓ")
             print("Casillas pintadas por el verde:", ambiente.casillas_pintadas_verde,"Puede seguir jugando")
             print("Casillas pintadas por el rojo:", ambiente.casillas_pintadas_rojo, "No puede seguir jugando, no tiene movimientos")
+            resultado = (
+                "El yoshi verde GANÓ<br>"
+                f"Casillas pintadas por el verde: {ambiente.casillas_pintadas_verde}, Puede seguir jugando<br>"
+                f"Casillas pintadas por el rojo: {ambiente.casillas_pintadas_rojo}, No puede seguir jugando"
+            )
+            self.mostrar_resultado(resultado)
             self.btnVolver.setFixedSize(120, 50)  # Ajustar tamaño horizontal y vertical
             self.btnVolver.setVisible(True)  # Establecer la visibilidad del botón "Volver" como True
+    
+    def mostrar_resultado(self, mensaje):
+        if not self.ventana_emergente:
+            self.ventana_emergente = QtWidgets.QMainWindow()
+            ui_ventana_emergente = Ui_ventanaEmergente()
+            ui_ventana_emergente.setupUi(self.ventana_emergente, mensaje)
+            self.ventana_emergente.show()
 
     def volver(self):
         # Ejecutar "ventanaInicio.py" usando subprocess
