@@ -94,11 +94,6 @@ class Ui_ventanaEmergente(object):
         "    background-color: rgb(150, 0, 0);\n"
         "}"))
     
-    """def cerrar_ok(self):
-         # Ocultar la ventana actual
-        
-        app.activeWindow().hide()"""
-
 
 if __name__ == "__main__":
     import sys
