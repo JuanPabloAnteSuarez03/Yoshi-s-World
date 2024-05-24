@@ -15,3 +15,11 @@ Cómo ejecutar:
 
 - Se ejecuta desde el archivo main.py
 - Nota: Cada vista tiene su propio main, pero se recomienda no ejecutarlo ya que estos son para checar el funcionamiento aislado de cada vista.
+
+
+Integrantes:
+
+Juan Pablo Ante - 2140132
+Nicolas Garcés - 2180066
+Alejandro Guerrero - 2179652
+Alejandro Zamorano - 1941088
