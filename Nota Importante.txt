@@ -1,0 +1,7 @@
+Para ejecutar el código se requiere la librería PyQt5
+
+Para instalar use el comando:
+pip install pyqt5
+
+
+Link del repositorio GitHub: https://github.com/JuanPabloAnteSuarez03/Yoshi-s-World
